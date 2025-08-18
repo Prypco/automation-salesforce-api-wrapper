@@ -114,14 +114,18 @@ src/
   });
 ```
 
-### Direct API Use Example
+### Direct API Use Example(e.g using Playwright)
 
 ```js
-import * as sf from '@kalpeshchilka/salesforce-api-wrapper';
+import * as sf from "@kalpeshchilka/salesforce-api-wrapper/src";
 
-cy.task('createLead', ({ token, body }) =>
-  sf.createRecord({ token, objectType: 'Lead', body })
-);
+const sfToken = await sf.getAccessToken();
+const leadRes = await sf.getRecord({
+  token: sfToken,
+  objectType: "Lead",
+  recordId: "leadId",
+});
+console.log("Lead response- " + JSON.stringify(leadRes, null, 2));
 ```
 
 ## 🛠️ Environment Variables
