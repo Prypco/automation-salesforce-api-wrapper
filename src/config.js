@@ -4,3 +4,4 @@ export const CLIENT_ID = process.env.SALESFORCE_CLIENT_ID;
 export const CLIENT_SECRET = process.env.SALESFORCE_CLIENT_SECRET;
 export const USERNAME = process.env.SALESFORCE_USERNAME;
 export const PASSWORD = process.env.SALESFORCE_PASSWORD;
+export const GRANT_TYPE = process.env.SALESFORCE_GRANT_TYPE;
