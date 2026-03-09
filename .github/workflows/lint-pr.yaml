@@ -1,0 +1,23 @@
+name: PR Title Policy
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: read
+  issues: write
+
+jobs:
+  policy:
+    runs-on: self-hosted-aks
+    steps:
+      - uses: Prypco/GithubActionsTemplates/.github/actions/pr-title-policy@v0.2.5
+        with:
+          pr-title: ${{ github.event.pull_request.title }}
+          jira-token: ${{ secrets.JIRA_TOKEN }}
+          jira-username: ${{ secrets.JIRA_USERNAME }}
+          github-token: ${{ github.token }}
+          pr-number: ${{ github.event.pull_request.number }}
+          repo: ${{ github.repository }}
